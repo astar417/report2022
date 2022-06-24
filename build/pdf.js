@@ -1116,7 +1116,7 @@ var _transport_stream = __w_pdfjs_require__(17);
 
 var _xfa_text = __w_pdfjs_require__(18);
 
-const DEFAULT_RANGE_CHUNK_SIZE = 165536;
+const DEFAULT_RANGE_CHUNK_SIZE = 51200;
 const RENDERING_CANCELLED_TIMEOUT = 100;
 let DefaultCanvasFactory = _display_utils.DOMCanvasFactory;
 exports.DefaultCanvasFactory = DefaultCanvasFactory;
