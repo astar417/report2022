@@ -1,5 +1,12 @@
 // JavaScript Document
 
+{
+  "startPage": 1, // 分片的开始页码
+  "endPage": 2, // 分片结束页码
+  "totalPage": 64, // pdf 总页数
+  "url": "report2022A3.pdf" // 分片内容下载地址
+}
+  
 
 /*
   代码中使用 loadStatus 来记录特定页的内容是否一件下载
@@ -34,13 +41,14 @@ asycn function fetchPdfFragment(pageIndex) {
   /* 
     省略具体实现
     该方法从服务器获取包含指定页码(pageIndex)的 pdf 分片内容，
-    返回的格式参考上文约定： */
+    返回的格式参考上文约定： 
 {
   "startPage": 1, // 分片的开始页码
   "endPage": 2, // 分片结束页码
   "totalPage": 64, // pdf 总页数
   "url": "report2022A3.pdf" // 分片内容下载地址
 }
+*/
   
 }
 // 创建一个 pages 数组来保存已经下载的 pdf 
