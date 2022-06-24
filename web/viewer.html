@@ -32,9 +32,8 @@ See https://github.com/adobe-type-tools/cmap-resources
 <!-- This snippet is used in production (included from viewer.html) -->
 <link rel="resource" type="application/l10n" href="locale/locale.properties">
 <script src="../build/pdf.js"></script>
-
-  <script src="viewer.js"></script>
-<!--  <script src="addspeed.js"></script>-->
+<script src="viewer.js"></script>
+<script src="touch.min.js"></script>
   </head>
 
   <body tabindex="1">
@@ -414,64 +413,32 @@ See https://github.com/adobe-type-tools/cmap-resources
     <div id="printContainer"></div>
       
     <script type="text/javascript">function stop(){return false;}document.oncontextmenu = stop;</script>
-      <script type="text/javascript">
-
-    var touchState = null;   
     
-    function addPinchListener() {
-      let element = document.getElementById("viewerContainer");
-      element.addEventListener("touchstart", onTouchStart, false);
-      element.addEventListener("touchmove", onTouchMove, false);
-      element.addEventListener("touchend", onTouchEnd, false);
-    }
+<script type="text/javascript">
+var target = document.getElementById("viewerContainer");
+target.style.webkitTransition = 'all ease 0.05s';
 
-    function onTouchStart(evt) {
-      touchState = {
-        startX: evt.touches[0].pageX,
-        startY: evt.touches[0].pageY,
-        endX: evt.touches[0].pageX,
-        endY: evt.touches[0].pageY,
+touch.on('#viewerContainer', 'touchstart', function(ev){
+	ev.preventDefault();
+});
 
-        startX2: evt.touches[1] ? evt.touches[1].pageX : -1,
-        startY2: evt.touches[1] ? evt.touches[1].pageY : -1,
-        endX2: evt.touches[1] ? evt.touches[1].pageX : -1,
-        endY2: evt.touches[1] ? evt.touches[1].pageY : -1
-      };
-    }
+var initialScale = 1;
+var currentScale;
 
-    function onTouchMove(evt) {
-      if (touchState === null) {
-        return;
-      }
-      touchState.endX = evt.touches[0].pageX;
-      touchState.endY = evt.touches[0].pageY;
-      touchState.endX2 = evt.touches[1] ? evt.touches[1].pageX : -1;
-      touchState.endY2 = evt.touches[1] ? evt.touches[1].pageY : -1;
-    }
+touch.on('#viewerContainer', 'pinchend', function(ev){
+	currentScale = ev.scale - 1;
+	currentScale = initialScale + currentScale;
+	currentScale = currentScale > 2 ? 2 : currentScale;
+	currentScale = currentScale < 1 ? 1 : currentScale;
+	this.style.webkitTransform = 'scale(' + currentScale + ')';
+	log("当前缩放比例为:" + currentScale + ".");
+});
 
+touch.on('#viewerContainer', 'pinchend', function(ev){
+	initialScale = currentScale;
+});
 
-    function onTouchEnd(evt) {
-      if (touchState === null) {
-        return;
-      }
-      var getDistance = function (startX, startY, endX, endY) {
-        return Math.hypot(endX - startX, endY - startY);
-      };
-
-      if (touchState.startX2 != -1 && touchState.endX2 != -1 && touchState.startY2 != -1 && touchState.endY2 != -1) {
-        let distanceStart = getDistance(touchState.startX, touchState.startY, touchState.startX2, touchState.startY2);
-        let distanceEnd = getDistance(touchState.endX, touchState.endY, touchState.endX2, touchState.endY2);
-          
-        if (distanceStart < distanceEnd) {
-          PDFViewerApplication.forceZoomIn();
-        } else if (distanceStart > distanceEnd) {
-          PDFViewerApplication.forceZoomOut();
-        }
-      }
-    }
-    
-    addPinchListener();
-  </script> 
+</script> 
     <input type="file" id="fileInput" class="hidden">
   </body>
 </html>
