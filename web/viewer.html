@@ -420,21 +420,7 @@ See https://github.com/adobe-type-tools/cmap-resources
     <script type="text/javascript">function stop(){return false;}document.oncontextmenu = stop;</script>
     
     <script type="text/javascript">
-     forceZoomIn() {
-      let newScale = this.pdfViewer.currentScale;
-      newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
-      newScale = Math.ceil(newScale * 10) / 10;
-      newScale = Math.min(_ui_utils.MAX_SCALE, newScale);
-      this.pdfViewer.currentScaleValue = newScale;
-    },
-
-     forceZoomOut() {
-      let newScale = this.pdfViewer.currentScale;
-      newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
-      newScale = Math.floor(newScale * 10) / 10;
-      newScale = Math.max(_ui_utils.MIN_SCALE, newScale);
-      this.pdfViewer.currentScaleValue = newScale;
-    },
+     
     var touchState = null;   
     
     function addPinchListener() {
