@@ -13679,7 +13679,7 @@ class Toolbar {
       items,
       l10n
     } = this;
-    const predefinedValuesPromise = Promise.all([l10n.get("page_scale_fit"), l10n.get("page_scale_actual"), l10n.get("page_scale_fit"), l10n.get("page_scale_width")]);
+    const predefinedValuesPromise = Promise.all([l10n.get("page_scale_fit"), l10n.get("page_scale_actual"), l10n.get("page_scale_fit"), l10n.get("page_scale_auto")]);
     await _ui_utils.animationStarted;
     const style = getComputedStyle(items.scaleSelect),
           scaleSelectContainerWidth = parseInt(style.getPropertyValue("--scale-select-container-width"), 10),
