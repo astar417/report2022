@@ -838,7 +838,22 @@ const PDFViewerApplication = {
 
     this.pdfViewer.currentScaleValue = _ui_utils.DEFAULT_SCALE_VALUE;
   },
-
+  //强制放大
+ forceZoomIn() {
+  let newScale = this.pdfViewer.currentScale;
+  newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
+  newScale = Math.ceil(newScale * 10) / 10;
+  newScale = Math.min(_ui_utils.MAX_SCALE, newScale);
+  this.pdfViewer.currentScaleValue = newScale;
+},
+ //强制缩小
+ forceZoomOut() {
+  let newScale = this.pdfViewer.currentScale;
+  newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
+  newScale = Math.floor(newScale * 10) / 10;
+  newScale = Math.max(_ui_utils.MIN_SCALE, newScale);
+  this.pdfViewer.currentScaleValue = newScale;
+},
   get pagesCount() {
     return this.pdfDocument ? this.pdfDocument.numPages : 0;
   },
