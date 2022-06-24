@@ -838,7 +838,7 @@ const PDFViewerApplication = {
 
     this.pdfViewer.currentScaleValue = _ui_utils.DEFAULT_SCALE_VALUE;
   },
-  //强制放大
+//强制放大
  forceZoomIn() {
   let newScale = this.pdfViewer.currentScale;
   newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
@@ -846,7 +846,7 @@ const PDFViewerApplication = {
   newScale = Math.min(_ui_utils.MAX_SCALE, newScale);
   this.pdfViewer.currentScaleValue = newScale;
 },
- //强制缩小
+//强制缩小
  forceZoomOut() {
   let newScale = this.pdfViewer.currentScale;
   newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
@@ -13679,7 +13679,7 @@ class Toolbar {
       items,
       l10n
     } = this;
-    const predefinedValuesPromise = Promise.all([l10n.get("page_scale_auto"), l10n.get("page_scale_actual"), l10n.get("page_scale_fit"), l10n.get("page_scale_width")]);
+    const predefinedValuesPromise = Promise.all([l10n.get("page_scale_fit"), l10n.get("page_scale_actual"), l10n.get("page_scale_fit"), l10n.get("page_scale_width")]);
     await _ui_utils.animationStarted;
     const style = getComputedStyle(items.scaleSelect),
           scaleSelectContainerWidth = parseInt(style.getPropertyValue("--scale-select-container-width"), 10),
