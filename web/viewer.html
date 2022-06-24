@@ -238,15 +238,13 @@ See https://github.com/adobe-type-tools/cmap-resources
                   <span data-l10n-id="open_file_label">Open</span>
                 </button>
 
-<!--
-                <button id="print" class="toolbarButton hiddenMediumView" title="Print" tabindex="33" data-l10n-id="print">
+                <button id="print" class="toolbarButton hiddenMediumView" title="Print" tabindex="33" data-l10n-id="print" style="display: none;">
                   <span data-l10n-id="print_label">Print</span>
                 </button>
 
-                <button id="download" class="toolbarButton hiddenMediumView" title="Download" tabindex="34" data-l10n-id="download">
+                <button id="download" class="toolbarButton hiddenMediumView" title="Download" tabindex="34" data-l10n-id="download" style="display: none;">
                   <span data-l10n-id="download_label">Download</span>
                 </button>
--->
                 <a href="#" id="viewBookmark" class="toolbarButton hiddenSmallView" title="Current view (copy or open in new window)" tabindex="35" data-l10n-id="bookmark">
                   <span data-l10n-id="bookmark_label">Current View</span>
                 </a>
@@ -412,8 +410,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 
     </div> <!-- outerContainer -->
     <div id="printContainer"></div>
-
+    <script type="text/javascript">function stop(){return false;}document.oncontextmenu = stop;</script>
     <input type="file" id="fileInput" class="hidden">
-      <script type="text/javascript">function stop(){return false;}document.oncontextmenu = stop;</script>
   </body>
 </html>
