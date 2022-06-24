@@ -1,7 +1,7 @@
 // JavaScript Document
 {
   "startPage": 1, // 分片的开始页码
-  "endPage": 5, // 分片结束页码
+  "endPage": 2, // 分片结束页码
   "totalPage": 64, // pdf 总页数
   "url": "report2022A3.pdf" // 分片内容下载地址
 }
