@@ -33,7 +33,12 @@ See https://github.com/adobe-type-tools/cmap-resources
 <link rel="resource" type="application/l10n" href="locale/locale.properties">
 <script src="../build/pdf.js"></script>
 
-  <script src="viewer.js"></script>
+<script>    
+if(screen.width > 900)
+    document.write('<script src="viewerA3.js"><\/script>');
+else
+    document.write('<script src="viewer.js"><\/script>');  
+</script> 
 <!--  <script src="addspeed.js"></script>-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPFHG0PJ8C"></script>
