@@ -28,7 +28,7 @@ See https://github.com/adobe-type-tools/cmap-resources
     <title>中興公司園路部年刊2022</title>
 
     <link rel="stylesheet" href="viewer.css">
-
+<script type="text/javascript" src="compatibility.js"></script>
 <!-- This snippet is used in production (included from viewer.html) -->
 <link rel="resource" type="application/l10n" href="locale/locale.properties">
 <script src="../build/pdf.js"></script>
@@ -39,6 +39,12 @@ if(screen.width > 900)
 else
     document.write('<script src="viewer.js"><\/script>');  
 </script> 
+<!-- NEED THIS for Safari Mac to render work -->
+<script type="text/javascript">
+    // Specify the main script used to create a new PDF.JS web worker.  
+    // In production, change this to point to the combined `pdf.js` file.  
+    PDFJS.workerSrc = 'pdf.worker.js';  
+</script>
 <!--  <script src="addspeed.js"></script>-->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPFHG0PJ8C"></script>
